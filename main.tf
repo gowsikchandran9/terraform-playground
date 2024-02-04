@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = "eu-central-1"
+  region = "eu-central-1"
 }
 terraform {
   backend "s3" {
@@ -24,7 +24,7 @@ resource "aws_iam_user" "admin-user" {
 }
 
 resource "aws_iam_policy" "adminUser" {
-  name = "AdminUsers"
+  name   = "AdminUsers"
   policy = file("admin-policy.json")
 }
 
