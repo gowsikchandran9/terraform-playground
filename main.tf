@@ -1,6 +1,5 @@
 provider "aws" {
   region  = "eu-central-1"
-  profile = "dvt-training-admin"
 }
 terraform {
   backend "s3" {
@@ -8,7 +7,6 @@ terraform {
     key            = "terraform/playground-app/terraform.tfstate"
     region         = "eu-central-1"
     dynamodb_table = "playground-app-terraform-state-locks"
-    profile = "dvt-training-admin"
   }
   required_providers {
     aws = {
