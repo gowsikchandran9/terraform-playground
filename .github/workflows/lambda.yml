@@ -1,0 +1,51 @@
+name: 'Deploy Lambda Function'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+jobs:
+  terraform:
+    name: Build and Deploy Lambda functions
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r lambda/requirements.txt
+
+      - name: Zip the Lambda function
+        run: |
+          cd python
+          zip function.zip main.py
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp function.zip s3://playground-app-terraform-state-bucket/function.zip
+
+      - name: Update Lambda function
+        run: |
+          aws lambda update-function-code --function-name test-lambda-function --s3-bucket playground-app-terraform-state-bucket --s3-key function.zip
+          

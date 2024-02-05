@@ -1,3 +1,7 @@
+variable "s3_bucket" {
+  description = "playground-app-terraform-state-bucket"
+}
+
 variable "name" {
   type    = string
   default = "Mark"
