@@ -43,6 +43,7 @@ jobs:
         run: |
           cd src/python 
           zip function.zip main.py
+          ls
 
       - name: Install dependencies
         run: |
