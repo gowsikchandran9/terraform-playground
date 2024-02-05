@@ -14,7 +14,7 @@ resource "aws_iam_role" "lambda_role" {
     ],
   })
 }
-
+# added comment
 resource "aws_lambda_function" "test-function" {
   function_name = "test-lambda-function"
 
