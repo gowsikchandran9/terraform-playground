@@ -44,6 +44,9 @@ jobs:
           cd src/python 
           zip function.zip main.py
 
+      - name: Check AWS CLI version
+        run: aws --version
+
       - name: Upload to S3
         run: |
           aws s3 cp src/python/function.zip s3://playground-app-terraform-state-bucket/function.zip
