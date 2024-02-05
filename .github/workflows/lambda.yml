@@ -6,11 +6,13 @@ on:
       - main
     paths:
       - 'src/**'
+      - '.github/workflows/lambda.yml'
   pull_request:
     branches:
       - main
     paths:
       - 'src/**'
+      - '.github/workflows/lambda.yml'
 
 jobs:
   terraform:
@@ -32,8 +34,9 @@ jobs:
         with:
           python-version: '3.12'
 
-#      - name: Install dependencies
-#        run: |
+      - name: Install dependencies
+        run: |
+          ls
 #          pip install -r lambda/requirements.txt
 
       - name: Zip the Lambda function
