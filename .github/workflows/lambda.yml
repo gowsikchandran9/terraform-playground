@@ -15,7 +15,7 @@ on:
       - '.github/workflows/lambda.yml'
 
 jobs:
-  terraform:
+  lambda:
     name: Build and Deploy Lambda functions
     runs-on: ubuntu-latest
 
@@ -43,6 +43,10 @@ jobs:
         run: |
           cd src/python 
           zip function.zip main.py
+
+      - name: Install dependencies
+        run: |
+          ls
 
       - name: Upload to S3
         run: |
