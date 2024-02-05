@@ -3,10 +3,11 @@ provider "aws" {
 }
 terraform {
   backend "s3" {
-    bucket = "playground-app-terraform-state-bucket"
-    key    = "terraform/playground-app/terraform.tfstate"
-    region = "eu-central-1"
-    #   dynamodb_table = "playground-app-terraform-state-locks"
+    bucket         = "playground-app-terraform-state-bucket"
+    key            = "terraform/playground-app/terraform.tfstate"
+    region         = "eu-central-1"
+    dynamodb_table = "playground-app-terraform-state-locks"
+#    profile = "dvt-training-admin"
   }
   required_providers {
     aws = {

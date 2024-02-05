@@ -30,7 +30,7 @@ jobs:
 
       - name: Echo Region
         run: |
-          echo "The environment variable value is ${{ env.AWS_REGION }}"
+          echo "The environment variable value is $AWS_REGION"
 
       - name: Terraform Init
         run: terraform init
