@@ -59,4 +59,3 @@ jobs:
       - name: Update Lambda function
         run: |
           aws lambda update-function-code --function-name test-lambda-function --s3-bucket playground-app-terraform-state-bucket --s3-key function.zip
-          
