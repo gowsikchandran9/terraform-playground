@@ -41,7 +41,7 @@ jobs:
 
       - name: Zip the Lambda function
         run: |
-          cd python
+          cd src/python 
           zip function.zip main.py
 
       - name: Upload to S3
