@@ -6,5 +6,5 @@ def handler(event, context):
     print(f"The current time is {current_time}")
     return {
         'statusCode': 200,
-        'body': f"The current time is {current_time}"
+        'body': f"The current time is new {current_time}"
     }
