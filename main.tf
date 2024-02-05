@@ -17,7 +17,7 @@ terraform {
 }
 
 resource "aws_iam_user" "admin-user" {
-  name = "Mary"
+  name = "Lucy"
   tags = {
     Description = "Technical Team Leader"
   }
