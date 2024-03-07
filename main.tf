@@ -7,7 +7,7 @@ terraform {
     key            = "terraform/playground-app/terraform.tfstate"
     region         = "eu-central-1"
     dynamodb_table = "playground-app-terraform-state-locks"
-    #    profile = "dvt-training-admin"
+    profile        = "dvt-training-admin"
   }
   required_providers {
     aws = {
